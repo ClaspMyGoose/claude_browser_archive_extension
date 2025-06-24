@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Claude Chat Archiver",
+  "version": "1.0",
+  "description": "Automatically archive Claude chat conversations",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://claude.ai/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://claude.ai/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Claude Chat Archiver"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
